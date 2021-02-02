@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import CardList from './components/CardList';
+import {profils} from './ressources/profils';
+import SearchInput from './components/SearchInput';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component  {
+    
+    state = {
+            profils: profils,
+            searchField: ''
+    };
+
+    onSearchInput = (event) => this.setState({ searchField: event.target.value });     
+
+    render() {
+        const filterProfils = this.state.profils.filter(x => {
+            return x.name.toLowerCase().includes(this.state.searchField.toLowerCase());
+        } )
+        
+        return (
+            <div className='tc'>
+                <h2>Profils List</h2>
+                <SearchInput onSearchInput={this.onSearchInput} />
+                <CardList profils={filterProfils} />
+            </div>
+        )
+        
+
+    };
 }
 
 export default App;
