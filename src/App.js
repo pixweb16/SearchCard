@@ -28,5 +28,5 @@ class App extends Component  {
 
     };
 }
-
+/* firsr letter of App should be UPPERCASE or it will not work because react dont reconnize it as a component */
 export default App;
