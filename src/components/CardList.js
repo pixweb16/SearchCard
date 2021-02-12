@@ -1,8 +1,15 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({profils}) => {
-    return profils.map( (user, i) => <Card key={user.id} name={user.name} email={user.email} /> );
+const CardList = ({profils, clicked}) => {
+
+    return profils.map( (user, i) => <Card 	key={user.id}
+    										i={user.id}
+    										id={i}
+    										name={user.name} 
+    										email={user.email} 
+    										clicked={clicked} 
+    								/>);
 }
 
 export default CardList;

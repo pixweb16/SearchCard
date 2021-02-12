@@ -1,0 +1,4 @@
+.gr::-moz-placeholder, .gr::-webkit-input-placeholder {
+	color: darksalmon;
+	font-size: 11px;
+}
